@@ -4,6 +4,8 @@ import fooddelivery.StoreApplication;
 import fooddelivery.domain.Accepted;
 import fooddelivery.domain.Cooked;
 import fooddelivery.domain.Rejected;
+import fooddelivery.external.OrderService;
+
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -48,17 +50,24 @@ public class StoreOrder {
         return storeOrderRepository;
     }
 
-    public void finishCook() {}
+    public void finishCook() {
 
-    public void accept() {}
+        setStatus(Status.FINISHED);
+    }
+
+    public void accept() {
+        setStatus(Status.ACCEPTED);
+    }
 
     public void reject() {}
 
     public void startCook() {}
 
-    public static void 주문목록에추가(Paid paid) {
+    public static void 주문목록에추가(Paid paid, OrderService orderService) {
         /** Example 1:  new item*/ 
         StoreOrder storeOrder = new StoreOrder();
+
+        storeOrder.setFoodId(orderService.getOrder(paid.getOrderId()).getFoodId());
         storeOrder.setOrderId(paid.getOrderId());
         repository().save(storeOrder);
 

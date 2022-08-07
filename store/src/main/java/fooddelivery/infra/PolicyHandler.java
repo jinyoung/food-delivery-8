@@ -43,7 +43,7 @@ public class PolicyHandler {
         // orderService.getOrder(/** mapping value needed */);
 
         // Sample Logic //
-        StoreOrder.주문목록에추가(event);
+        StoreOrder.주문목록에추가(event, orderService);
     }
 
     @StreamListener(

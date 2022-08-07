@@ -12,7 +12,7 @@ public class Order {
     private String preference;
     private String options;
     private String status;
-    private Address address;
+//    private Address address;
     // keep
 
 }
