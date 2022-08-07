@@ -70,15 +70,15 @@
                     v-if="!editMode"
                     color="deep-purple lighten-2"
                     text
-                    @click="openSetPrice"
+                    @click="openChangePrice"
             >
-                SetPrice
+                ChangePrice
             </v-btn>
-            <v-dialog v-model="setPriceDiagram" width="500">
-                <SetPriceCommand
-                        @closeDialog="closeSetPrice"
-                        @setPrice="setPrice"
-                ></SetPriceCommand>
+            <v-dialog v-model="changePriceDiagram" width="500">
+                <ChangePriceCommand
+                        @closeDialog="closeChangePrice"
+                        @changePrice="changePrice"
+                ></ChangePriceCommand>
             </v-dialog>
         </v-card-actions>
 
@@ -119,7 +119,7 @@
                 timeout: 5000,
                 text: ''
             },
-            setPriceDiagram: false,
+            changePriceDiagram: false,
         }),
         created(){
         },
@@ -233,17 +233,17 @@
                     }
                 }
             },
-            async setPrice(params) {
+            async changePrice(params) {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links.setPrice.href), params)
+                        var temp = await axios.put(axios.fixUrl(this.value._links.set-price.href), params)
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
                     }
 
                     this.editMode = false;
-                    this.closeSetPrice();
+                    this.closeChangePrice();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response.data.message) {
@@ -253,11 +253,11 @@
                     }
                 }
             },
-            openSetPrice() {
-                this.setPriceDiagram = true;
+            openChangePrice() {
+                this.changePriceDiagram = true;
             },
-            closeSetPrice() {
-                this.setPriceDiagram = false;
+            closeChangePrice() {
+                this.changePriceDiagram = false;
             },
         },
     }

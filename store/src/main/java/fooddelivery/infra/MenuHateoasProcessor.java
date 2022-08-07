@@ -19,8 +19,8 @@ public class MenuHateoasProcessor
         );
         model.add(
             Link
-                .of(model.getRequiredLink("self").getHref() + "/setPrice")
-                .withRel("setPrice")
+                .of(model.getRequiredLink("self").getHref() + "/set-price")
+                .withRel("set-price")
         );
 
         return model;

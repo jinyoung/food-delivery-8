@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.Data;
 
 @Data
-public class SetPriceCommand {
+public class ChangePriceCommand {
 
     private Double price;
 }

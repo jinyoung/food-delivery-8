@@ -38,5 +38,5 @@ public class Menu {
 
     public void 메뉴삭제() {}
 
-    public void setPrice(SetPriceCommand setPriceCommand) {}
+    public void changePrice(ChangePriceCommand changePriceCommand) {}
 }
