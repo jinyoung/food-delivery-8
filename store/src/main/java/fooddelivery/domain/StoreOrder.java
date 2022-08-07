@@ -2,7 +2,6 @@ package fooddelivery.domain;
 
 import fooddelivery.StoreApplication;
 import fooddelivery.domain.Accepted;
-import fooddelivery.domain.Cooked;
 import fooddelivery.domain.Rejected;
 import java.util.Date;
 import java.util.List;
@@ -31,9 +30,6 @@ public class StoreOrder {
 
     @PostPersist
     public void onPostPersist() {
-        Cooked cooked = new Cooked(this);
-        cooked.publishAfterCommit();
-
         Accepted accepted = new Accepted(this);
         accepted.publishAfterCommit();
 
@@ -48,7 +44,10 @@ public class StoreOrder {
         return storeOrderRepository;
     }
 
-    public void finishCook() {}
+    public void finishCook() {
+        Cooked cooked = new Cooked(this);
+        cooked.publishAfterCommit();
+    }
 
     public void accept() {}
 
