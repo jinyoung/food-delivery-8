@@ -11,8 +11,8 @@ public class Order {
     private String customerId;
     private String preference;
     private String options;
-    private Address address;
     private String status;
+    private Address address;
     // keep
 
 }

@@ -27,10 +27,10 @@
                                 Options :  {{item.options }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Address :  {{item.address }}
+                                Status :  {{item.status }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Status :  {{item.status }}
+                                Address :  {{item.address }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 
