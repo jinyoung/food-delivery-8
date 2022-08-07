@@ -25,6 +25,9 @@ public class PolicyHandler {
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
 
+    @Autowired
+    fooddelivery.external.OrderService orderService;
+
     @StreamListener(
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='Paid'"
@@ -34,6 +37,10 @@ public class PolicyHandler {
         System.out.println(
             "\n\n##### listener 주문목록에추가 : " + paid + "\n\n"
         );
+
+        // REST Request Sample
+
+        // orderService.getOrder(/** mapping value needed */);
 
         // Sample Logic //
         StoreOrder.주문목록에추가(event);
