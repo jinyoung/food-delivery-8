@@ -33,5 +33,8 @@ public class Menu {
         return menuRepository;
     }
 
-    public void 메뉴삭제() {}
+    public void 메뉴삭제() {
+
+        setName(null);
+    }
 }
