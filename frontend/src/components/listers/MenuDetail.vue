@@ -8,6 +8,7 @@
             <div>
                 <String label="Name" v-model="item.name" :editMode="editMode" @change="change" />
             </div>
+            <Money offline label="Price" v-model="item.price" :editMode="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

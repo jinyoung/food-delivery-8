@@ -27,7 +27,7 @@ public class TopFoodViewHandler {
             TopFood topFood = new TopFood();
             // view 객체에 이벤트의 Value 를 set 함
             topFood.setFooid(Long.valueOf(orderPlaced.getFoodId()));
-            topFood.setCount(0);
+            topFood.setCount(0L);
             // view 레파지 토리에 save
             topFoodRepository.save(topFood);
         } catch (Exception e) {

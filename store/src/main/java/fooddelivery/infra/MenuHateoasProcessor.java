@@ -17,6 +17,11 @@ public class MenuHateoasProcessor
                 .of(model.getRequiredLink("self").getHref() + "/remove")
                 .withRel("remove")
         );
+        model.add(
+            Link
+                .of(model.getRequiredLink("self").getHref() + "/setPrice")
+                .withRel("setPrice")
+        );
 
         return model;
     }

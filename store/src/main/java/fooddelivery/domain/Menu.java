@@ -17,6 +17,9 @@ public class Menu {
 
     private String name;
 
+    @Embedded
+    private Money price;
+
     @PostPersist
     public void onPostPersist() {
         // Get request from Preference
@@ -36,5 +39,13 @@ public class Menu {
     public void 메뉴삭제() {
 
         setName(null);
+    }
+
+
+    public void setPrice(SetPriceCommand setPriceCommand) {
+        Money price = new Money();
+        price.setAmount(setPriceCommand.getPrice());
+        price.setCurrency("WON");
+        setPrice(price);
     }
 }

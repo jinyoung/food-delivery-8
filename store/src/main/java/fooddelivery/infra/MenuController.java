@@ -38,5 +38,27 @@ public class MenuController {
         menuRepository.save(menu);
         return menu;
     }
+
+    @RequestMapping(
+        value = "menus/{id}/setPrice",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8"
+    )
+    public Menu setPrice(
+        @PathVariable(value = "id") Long id,
+        @RequestBody SetPriceCommand setPriceCommand,
+        HttpServletRequest request,
+        HttpServletResponse response
+    ) throws Exception {
+        System.out.println("##### /menu/setPrice  called #####");
+        Optional<Menu> optionalMenu = menuRepository.findById(id);
+
+        optionalMenu.orElseThrow(() -> new Exception("No Entity Found"));
+        Menu menu = optionalMenu.get();
+        menu.setPrice(setPriceCommand);
+
+        menuRepository.save(menu);
+        return menu;
+    }
     // keep
 }

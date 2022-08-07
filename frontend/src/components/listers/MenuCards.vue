@@ -69,6 +69,7 @@
             
             me.newValue = {
                 'name': '',
+                'price': {},
             }
         },
         methods:{
