@@ -15,6 +15,8 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+
     @PostPersist
     public void onPostPersist() {
         // Get request from Preference
@@ -30,4 +32,6 @@ public class Menu {
         );
         return menuRepository;
     }
+
+    public void 메뉴삭제() {}
 }

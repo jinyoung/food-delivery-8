@@ -67,6 +67,7 @@
             headers: 
                 [
                     { text: "id", value: "id" },
+                    { text: "name", value: "name" },
                 ],
             menu : [],
             newValue: {},
@@ -84,6 +85,7 @@
             this.values = temp.data._embedded.menus;
 
             this.newValue = {
+                'name': '',
             }
         },
         methods: {

@@ -68,6 +68,7 @@
             me.values = temp.data._embedded.menus;
             
             me.newValue = {
+                'name': '',
             }
         },
         methods:{
