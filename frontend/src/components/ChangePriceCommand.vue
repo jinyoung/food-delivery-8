@@ -2,7 +2,7 @@
 
     <v-card outlined>
         <v-card-title>
-            SetPrice
+            ChangePrice
         </v-card-title>
 
         <v-card-text>
@@ -14,9 +14,9 @@
             <v-btn
                     color="deep-purple lighten-2"
                     text
-                    @click="setPrice"
+                    @click="changePrice"
             >
-                SetPrice
+                ChangePrice
             </v-btn>
             
             <v-btn
@@ -34,7 +34,7 @@
 <script>
    
     export default {
-        name: 'SetPriceCommand',
+        name: 'ChangePriceCommand',
         components:{},
         props: {},
         data: () => ({
@@ -47,8 +47,8 @@
         watch: {
         },
         methods: {
-            setPrice() {
-                this.$emit('setPrice', this.value);
+            changePrice() {
+                this.$emit('changePrice', this.value);
             },
             close() {
                 this.$emit('closeDialog');

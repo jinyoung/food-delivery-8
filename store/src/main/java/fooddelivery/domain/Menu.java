@@ -37,15 +37,15 @@ public class Menu {
     }
 
     public void 메뉴삭제() {
-
         setName(null);
     }
 
+    public void changePrice(ChangePriceCommand changePriceCommand) {
 
-    public void setPrice(SetPriceCommand setPriceCommand) {
         Money price = new Money();
-        price.setAmount(setPriceCommand.getPrice());
+        price.setAmount(changePriceCommand.getPrice());
         price.setCurrency("WON");
         setPrice(price);
+
     }
 }
