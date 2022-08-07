@@ -36,6 +36,8 @@ public class Order {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         fooddelivery.external.Payment payment = new fooddelivery.external.Payment();
+
+        payment.setOrderId(getId());
         // mappings goes here
         FrontApplication.applicationContext
             .getBean(fooddelivery.external.PaymentService.class)

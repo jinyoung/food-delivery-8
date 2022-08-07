@@ -57,11 +57,12 @@ public class StoreOrder {
     public void startCook() {}
 
     public static void 주문목록에추가(Paid paid) {
-        /** Example 1:  new item 
+        /** Example 1:  new item*/ 
         StoreOrder storeOrder = new StoreOrder();
+        storeOrder.setOrderId(paid.getOrderId());
         repository().save(storeOrder);
 
-        */
+        
 
         /** Example 2:  finding and process
         
