@@ -25,10 +25,10 @@ public class Order {
 
     private String options;
 
-    private String status;
-
     @Embedded
     private Address address;
+
+    private String status;
 
     @PostPersist
     public void onPostPersist() {

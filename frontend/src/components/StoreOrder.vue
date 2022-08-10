@@ -20,8 +20,8 @@
             <String label="FoodId" v-model="value.foodId" :editMode="editMode"/>
             <String label="Preference" v-model="value.preference" :editMode="editMode"/>
             <Number label="OrderId" v-model="value.orderId" :editMode="editMode"/>
+            <String label="Status" v-model="value.status" :editMode="editMode"/>
             <String label="Test" v-model="value.test" :editMode="editMode"/>
-            <Status offline label="Status" v-model="value.status" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>
@@ -227,7 +227,7 @@
             async finishCook() {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links.finishCook.href))
+                        var temp = await axios.put(axios.fixUrl(this.value._links.finish-cook.href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
@@ -284,7 +284,7 @@
             async startCook() {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links.startCook.href))
+                        var temp = await axios.put(axios.fixUrl(this.value._links.start-cook.href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }

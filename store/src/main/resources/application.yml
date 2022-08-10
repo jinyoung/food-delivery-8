@@ -40,7 +40,6 @@ logging:
 api:
   url:
     marketing: localhost:8085
-    front: localhost:8081
 
 server:
   port: 8082
@@ -74,5 +73,4 @@ spring:
 api:
   url:
     marketing: marketing:8080
-    front: front:8080
 

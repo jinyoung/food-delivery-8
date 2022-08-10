@@ -15,9 +15,11 @@
                 <Number label="OrderId" v-model="item.orderId" :editMode="editMode" @change="change" />
             </div>
             <div>
+                <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
+            </div>
+            <div>
                 <String label="Test" v-model="item.test" :editMode="editMode" @change="change" />
             </div>
-            <Status offline label="Status" v-model="item.status" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

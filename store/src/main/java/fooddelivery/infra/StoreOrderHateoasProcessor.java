@@ -14,8 +14,8 @@ public class StoreOrderHateoasProcessor
     public EntityModel<StoreOrder> process(EntityModel<StoreOrder> model) {
         model.add(
             Link
-                .of(model.getRequiredLink("self").getHref() + "/finishCook")
-                .withRel("finishCook")
+                .of(model.getRequiredLink("self").getHref() + "/finish-cook")
+                .withRel("finish-cook")
         );
         model.add(
             Link
@@ -29,8 +29,8 @@ public class StoreOrderHateoasProcessor
         );
         model.add(
             Link
-                .of(model.getRequiredLink("self").getHref() + "/startCook")
-                .withRel("startCook")
+                .of(model.getRequiredLink("self").getHref() + "/start-cook")
+                .withRel("start-cook")
         );
 
         return model;

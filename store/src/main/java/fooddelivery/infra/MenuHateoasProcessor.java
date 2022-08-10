@@ -12,17 +12,6 @@ public class MenuHateoasProcessor
 
     @Override
     public EntityModel<Menu> process(EntityModel<Menu> model) {
-        model.add(
-            Link
-                .of(model.getRequiredLink("self").getHref() + "/remove")
-                .withRel("remove")
-        );
-        model.add(
-            Link
-                .of(model.getRequiredLink("self").getHref() + "/set-price")
-                .withRel("set-price")
-        );
-
         return model;
     }
 }

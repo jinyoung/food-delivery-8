@@ -19,7 +19,7 @@ public class StoreOrderController {
     StoreOrderRepository storeOrderRepository;
 
     @RequestMapping(
-        value = "storeOrders/{id}/finishCook",
+        value = "storeOrders/{id}/finish-cook",
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )
@@ -88,7 +88,7 @@ public class StoreOrderController {
     }
 
     @RequestMapping(
-        value = "storeOrders/{id}/startCook",
+        value = "storeOrders/{id}/start-cook",
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )

@@ -24,10 +24,10 @@
                                 OrderId :  {{item.orderId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Test :  {{item.test }}
+                                Status :  {{item.status }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Status :  {{item.status }}
+                                Test :  {{item.test }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

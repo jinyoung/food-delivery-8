@@ -24,8 +24,8 @@
                             [ CustomerId :  {{data.customerId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Preference :  {{data.preference }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Options :  {{data.options }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Address :  {{data.address }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -111,8 +111,8 @@
                 'customerId': '',
                 'preference': '',
                 'options': '',
-                'status': '',
                 'address': {},
+                'status': '',
             }
         },
         methods: {

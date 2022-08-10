@@ -2,6 +2,7 @@ package fooddelivery.domain;
 
 import fooddelivery.StoreApplication;
 import fooddelivery.domain.Accepted;
+import fooddelivery.domain.Cooked;
 import fooddelivery.domain.Rejected;
 import java.util.Date;
 import java.util.List;
@@ -23,13 +24,15 @@ public class StoreOrder {
 
     private Long orderId;
 
-    private String test;
+    private String status;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private String test;
 
     @PostPersist
     public void onPostPersist() {
+        Cooked cooked = new Cooked(this);
+        cooked.publishAfterCommit();
+
         Accepted accepted = new Accepted(this);
         accepted.publishAfterCommit();
 
@@ -44,10 +47,7 @@ public class StoreOrder {
         return storeOrderRepository;
     }
 
-    public void finishCook() {
-        Cooked cooked = new Cooked(this);
-        cooked.publishAfterCommit();
-    }
+    public void finishCook() {}
 
     public void accept() {}
 

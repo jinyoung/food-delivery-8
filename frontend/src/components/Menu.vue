@@ -17,8 +17,6 @@
         </v-card-title >
 
         <v-card-text>
-            <String label="Name" v-model="value.name" :editMode="editMode"/>
-            <Money offline label="Price" v-model="value.price" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>
@@ -58,28 +56,6 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>                        
-            <v-btn
-                    v-if="!editMode"
-                    color="deep-purple lighten-2"
-                    text
-                    @click="메뉴삭제"
-            >
-                메뉴삭제
-            </v-btn>
-            <v-btn
-                    v-if="!editMode"
-                    color="deep-purple lighten-2"
-                    text
-                    @click="openChangePrice"
-            >
-                ChangePrice
-            </v-btn>
-            <v-dialog v-model="changePriceDiagram" width="500">
-                <ChangePriceCommand
-                        @closeDialog="closeChangePrice"
-                        @changePrice="changePrice"
-                ></ChangePriceCommand>
-            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -100,12 +76,10 @@
 <script>
     const axios = require('axios').default;
 
-    import Money from './vo/Money.vue';
 
     export default {
         name: 'Menu',
         components:{
-            Money,
         },
         props: {
             value: [Object, String, Number, Boolean, Array],
@@ -119,7 +93,6 @@
                 timeout: 5000,
                 text: ''
             },
-            changePriceDiagram: false,
         }),
         created(){
         },
@@ -213,51 +186,6 @@
             },
             change(){
                 this.$emit('input', this.value);
-            },
-            async 메뉴삭제() {
-                try {
-                    if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links.remove.href))
-                        for(var k in temp.data) {
-                            this.value[k]=temp.data[k];
-                        }
-                    }
-
-                    this.editMode = false;
-                } catch(e) {
-                    this.snackbar.status = true
-                    if(e.response.data.message) {
-                        this.snackbar.text = e.response.data.message
-                    } else {
-                        this.snackbar.text = e
-                    }
-                }
-            },
-            async changePrice(params) {
-                try {
-                    if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links.set-price.href), params)
-                        for(var k in temp.data) {
-                            this.value[k]=temp.data[k];
-                        }
-                    }
-
-                    this.editMode = false;
-                    this.closeChangePrice();
-                } catch(e) {
-                    this.snackbar.status = true
-                    if(e.response.data.message) {
-                        this.snackbar.text = e.response.data.message
-                    } else {
-                        this.snackbar.text = e
-                    }
-                }
-            },
-            openChangePrice() {
-                this.changePriceDiagram = true;
-            },
-            closeChangePrice() {
-                this.changePriceDiagram = false;
             },
         },
     }
